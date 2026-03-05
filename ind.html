@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雨姐全屏视频（缩小版·能看到头）</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            width: 100vw;
+            height: 100vh;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        /* 让视频缩小一点，居中显示，能看到头 */
+        .full-video {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;    /* 缩小到90%，你可以改 80%、85%、90% */
+            height: 90%;  /* 同上 */
+            object-fit: contain; /* 关键：保证全部显示出来，不裁切头 */
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+<video id="video" class="full-video" loop playsinline>
+  <source src="8c9f3778e6092bc9381ade5d5a633832.mp4" type="video/mp4">
+</video>
+
+<script>
+// 点一下就播放+出声
+document.addEventListener('click', function(){
+  let video = document.getElementById('video');
+  video.play();
+  video.muted = false;
+});
+</script>
+
+</body>
+</html>
